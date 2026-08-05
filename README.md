@@ -11,7 +11,7 @@ laptop.
 ## Quick start
 
 ```bash
-git clone https://github.com/<USERNAME>/lhn-point-gap-topology.git
+git clone https://github.com/vishwaka-2419/lhn-point-gap-topology.git
 cd lhn-point-gap-topology
 pip install -r requirements.txt
 
