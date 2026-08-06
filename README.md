@@ -57,9 +57,6 @@ lhn/boundary.py        physical and synthetic boundary diagnostics
 lhn/topology.py        determinant winding and point-gap utilities
 scripts/validate.py    deterministic 33-check regression suite
 scripts/fig*.py        main and supplementary figure generation
-figures/               generated manuscript figures
-paper/                  manuscript and supplementary LaTeX sources
-submission/             cover letter and portal-ready text
 ```
 
 ## Figure map
