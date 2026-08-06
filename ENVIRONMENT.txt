@@ -1,0 +1,7 @@
+Tested on: 2026-08-05T14:58:25Z
+Python: Python 3.13.5
+Platform: Linux-6.18.35-x86_64-with-glibc2.41
+Packages:
+numpy==2.3.5
+scipy==1.17.0
+matplotlib==3.10.8

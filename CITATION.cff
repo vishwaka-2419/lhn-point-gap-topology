@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, cite the archived release and the associated article."
+title: "Certified Point-Gap Topology under Coherence Elimination in a Liouvillian Hatano--Nelson Chain"
+type: software
+version: "2.0.0"
+authors:
+  - family-names: "Vishwakarma"
+    given-names: "Aishwarya"
+    affiliation: "University of Geneva"
+repository-code: "https://github.com/wgarching/lhn-point-gap-topology"
+doi: "10.5281/zenodo.21813151"
+date-released: "2026-08-06"
+license: "MIT"
+keywords:
+  - "Lindblad dynamics"
+  - "non-Hermitian topology"
+  - "point-gap winding"
+  - "adiabatic elimination"
+  - "Markov generator"
