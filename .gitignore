@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.venv/
+venv/
+.env
+.DS_Store
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# Local scratch outputs
+scratch/
+tmp/
