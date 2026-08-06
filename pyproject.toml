@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lindblad-hatano-nelson"
+version = "2.0.0"
+description = "Certified preservation of Liouvillian point-gap topology under coherence elimination"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "matplotlib>=3.7",
+]
+
+[tool.setuptools]
+packages = ["lhn"]

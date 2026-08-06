@@ -1,95 +1,60 @@
-# Point-gap topology from Lindblad to Markov dynamics — simulation code
+# Certified point-gap topology under coherence elimination
 
-Simulation and analysis code accompanying the manuscript
-*Analytically Controlled Point-Gap Topology from Lindblad to Markov Dynamics*.
+This repository contains the analytical and numerical package for:
 
-This repository contains **code only**. It reproduces every figure and every
-numerical value quoted in the paper from scratch. Pure `numpy` / `scipy` /
-`matplotlib` — no compiled dependencies, no cluster, under two minutes on a
-laptop.
+> **Certified Point-Gap Topology under Coherence Elimination in a Liouvillian Hatano-Nelson Chain**  
+> Aishwarya Vishwakarma, University of Geneva
 
-## Quick start
+The model combines reciprocal coherent hopping, directionally biased Lindblad jumps, and local dephasing in the single-excitation sector.
+
+## Main results
+
+1. **Exact finite-size reduction.** The periodic Liouvillian decomposes into momentum blocks whose determinant is available in closed form. The complete point-gap winding reduces exactly to a scalar Schur complement.
+2. **Topology-preserving elimination.** Global and momentum-resolved bounds compare the exact scalar with a second-order effective Markov symbol. A positive pointwise reserve proves equality of the full Liouvillian and effective Markov windings.
+3. **Grid-independent certificate.** Interval subdivision validates the pointwise inequality over the complete Brillouin zone. For `J=1`, `Gamma_R=1`, `Gamma_L=0.35`, and `lambda=-0.4`, the all-finite-size certificate holds at `gamma_phi=4.33`; the global all-size threshold is approximately `8.01`.
+4. **Dimensionless certified region.** The criterion is expressed through `j=|J|/kappa`, `g=gamma_phi/kappa`, `xi=-lambda/kappa`, and `delta=(Gamma_R-Gamma_L)/Sigma`.
+5. **Subextensive skin sector.** At `J=0`, exactly `N` population modes carry a directional skin envelope within an `N^2`-mode Liouville space. At finite `J` and strong dephasing, the tested systems retain `N` localized population-associated modes while the coherence modes are extended.
+
+The no-jump Hamiltonian is reciprocal and point-gap trivial in this model, but that contrast is supporting structure rather than the novelty claim.
+
+## Reproduce the validation and figures
 
 ```bash
-git clone https://github.com/vishwaka-2419/lhn-point-gap-topology.git
-cd lhn-point-gap-topology
-pip install -r requirements.txt
-
-python scripts/validate.py    # 50 checks against closed-form results
-python scripts/run_all.py     # regenerates all figures into figures/
+python -m pip install -r requirements.txt
+python scripts/validate.py
+python scripts/run_all.py
 ```
 
-`validate.py` is the entry point that matters. Every quoted number is checked
-against an analytic result derived in `docs/derivation.md`. Several checks exist
-specifically to fail if a superseded formula or an unsupported claim is
-reintroduced.
+Expected validation summary:
 
-## Layout
-
-```
-lhn/
-  models.py       Lindblad Hatano-Nelson model, Liouvillian, momentum blocks,
-                  classical Markov generators
-  analytical.py   exact finite-N characteristic determinant, scalar Schur
-                  complement, effective Markov symbol, and the uniform error
-                  bound / homotopy certificate
-  topology.py     point-gap winding numbers (Bloch and real-space twist),
-                  localisation diagnostics
-  metrology.py    stationary states, Fisher information, driven-qubit
-                  exceptional-point reference
-  physical.py     literature parameters for Ti on 2 ML MgO/Ag(100), with unit
-                  conversions and per-value caveats
-  style.py        figure styling
-
-scripts/
-  validate.py                 50 analytic and regression checks
-  run_all.py                  regenerate every figure
-  fig1_topology.py            point-gap winding, boundary diagnostics
-  fig2_superdecoherence.py    quantum-to-classical reduction
-  fig3_metrology.py           boundary-rate Fisher information vs EP response
-  fig4_robustness.py          disordered winding, non-quantised response
-  fig5_esr_stm.py             comparison with reported ESR-STM scales
-  figS1_phase_certificate.py  supplementary winding certificate map
-
-docs/derivation.md            analytics behind every figure panel
-figures/                      generated output (not tracked)
+```text
+33/33 checks passed
 ```
 
-## Reproducing specific claims
+The exact tested versions are recorded in `requirements-tested.txt`.
 
-| Claim in the paper | Where |
-|---|---|
-| Exact finite-$N$ characteristic determinant | `lhn/analytical.py::exact_characteristic_determinant` |
-| Homotopy criterion for winding equality | `lhn/analytical.py::winding_certificate` |
-| Effective symmetric rate $D = 2J^2/(\gamma_\phi+\Gamma_R+\Gamma_L)$ | `lhn/models.py::symmetric_rate_D` |
-| Winding at a fixed reference point across dephasing | `scripts/fig2_superdecoherence.py` |
-| Boundary-rate Fisher information scaling | `lhn/metrology.py::lhn_sensor_fisher` |
-| Liouvillian exceptional-point location | `lhn/physical.py::ep_rabi_MHz` |
+## Repository layout
 
-## Two conventions that are easy to get wrong
+```text
+lhn/models.py          Lindblad, Bloch-block, and Markov generators
+lhn/analytical.py      Exact determinant and global/pointwise certificates
+lhn/boundary.py        Physical and synthetic boundary diagnostics
+lhn/topology.py        Determinant winding and point-gap utilities
+scripts/validate.py    Deterministic 33-check regression suite
+scripts/fig*.py        Main and supplementary figure generation
+```
 
-Both are enforced by regression tests in `validate.py`:
+## Code and archival record
 
-1. **Angular vs cyclic frequency.** The Lindblad equation takes Hamiltonian
-   coefficients as angular rates (rad/µs); experiments report cyclic
-   frequencies ($J/h$, $\Omega/2\pi$, in MHz). Use `physical.to_angular()`
-   before putting a measured coupling into a Hamiltonian. Decay rates
-   ($1/T_1$, $1/T_2$) need no conversion.
-2. **Reference points must be held fixed.** A winding number is only meaningful
-   at a reference point excluded from the spectrum and held fixed along any
-   parameter path. Recomputing it per parameter value tests nothing.
+Repository: <https://github.com/vishwaka-2419/lhn-point-gap-topology>  
+Versioned Zenodo archive: <https://doi.org/10.5281/zenodo.21813150>
 
-## Environment
-
-Developed and tested with Python 3.11, `numpy` 2.x, `scipy` 1.1x,
-`matplotlib` 3.1x. See `requirements.txt` for minimum versions. Results are
-deterministic: all stochastic elements use seeded `numpy.random.default_rng`.
+The Zenodo concept DOI resolves to the latest archived version. Cite the specific-version DOI shown on the Zenodo landing page when an immutable version-specific citation is required.
 
 ## Citation
 
-If you use this code, please cite both the paper and the archived release
-(see `CITATION.cff`).
+Use `CITATION.cff` or cite the associated article and archived software release.
 
 ## License
 
-MIT — see `LICENSE`.
+Code is released under the MIT License. Manuscript text and figures remain subject to the journal or preprint licence selected by the author.

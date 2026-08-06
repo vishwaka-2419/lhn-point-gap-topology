@@ -64,8 +64,7 @@ class LHNParams:
     pbc : bool
         Periodic (True) or open (False) boundary conditions.
     theta : float
-        Weak boundary link N-1 -> 0 used as the parameter to be estimated in
-        the metrology analysis. Only meaningful when pbc=False.
+        Optional weak return link from N-1 to 0 for open-boundary diagnostics.
     """
 
     def __init__(self, N=12, J=1.0, G_R=1.0, G_L=0.4, gphi=0.0, pbc=True, theta=0.0):
@@ -156,7 +155,7 @@ def jump_operators(p, rate_disorder=None):
             A[a, c] = np.sqrt(p.G_L * fL)     # |a><a+1| : hop left
             ops.append(A)
 
-    # weak boundary link (the parameter we estimate); only for open chains
+    # optional weak return link; only for open chains
     if (not p.pbc) and p.theta != 0.0 and N > 2:
         A = np.zeros((N, N), dtype=complex)
         A[0, N - 1] = np.sqrt(p.theta)        # |0><N-1| : return path

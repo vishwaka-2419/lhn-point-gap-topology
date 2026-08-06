@@ -1,0 +1,27 @@
+{
+  "title": "Simulation code for \"Certified Point-Gap Topology under Coherence Elimination in a Liouvillian Hatano-Nelson Chain\"",
+  "upload_type": "software",
+  "description": "Python code reproducing the analytical certificates, figures, and numerical validation for a finite Liouvillian Hatano-Nelson chain and its topology-preserving reduction to an effective Markov generator.",
+  "creators": [
+    {
+      "name": "Vishwakarma, Aishwarya",
+      "affiliation": "University of Geneva"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Lindblad dynamics",
+    "non-Hermitian topology",
+    "point-gap winding",
+    "adiabatic elimination",
+    "Markov generator",
+    "Liouvillian skin effect"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/vishwaka-2419/lhn-point-gap-topology",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

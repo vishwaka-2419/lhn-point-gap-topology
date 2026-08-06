@@ -1,28 +1,19 @@
 cff-version: 1.2.0
-title: >-
-  Simulation code for "Analytically Controlled Point-Gap Topology from
-  Lindblad to Markov Dynamics"
-message: >-
-  If you use this software, please cite both the software (this record) and
-  the accompanying paper.
+message: "If you use this software, cite the archived release and the associated article."
+title: "Certified Point-Gap Topology under Coherence Elimination in a Liouvillian Hatano-Nelson Chain"
 type: software
+version: "2.0.1"
 authors:
-  - given-names: Aishwarya
-    family-names: Vishwakarma
-    email: Aishwarya.Vishwakarma@unige.ch
-    affiliation: University of Geneva
-    orcid: 'https://orcid.org/0009-0009-0166-1322'
-repository-code: 'https://github.com/vishwaka-2419/lhn-point-gap-topology'
-abstract: >-
-  Python code reproducing the figures and numerical results of a study of
-  point-gap topology in a time-independent Lindblad Hatano-Nelson chain and
-  its analytically controlled reduction to a classical Markov generator.
+  - family-names: "Vishwakarma"
+    given-names: "Aishwarya"
+    affiliation: "University of Geneva"
+repository-code: "https://github.com/vishwaka-2419/lhn-point-gap-topology"
+doi: "10.5281/zenodo.21813150"
+date-released: "2026-08-06"
+license: "MIT"
 keywords:
-  - open quantum systems
-  - Lindblad dynamics
-  - non-Hermitian topology
-  - point-gap winding
-  - Markov processes
-license: MIT
-version: 1.0.0
-date-released: '2026-08-05'
+  - "Lindblad dynamics"
+  - "non-Hermitian topology"
+  - "point-gap winding"
+  - "adiabatic elimination"
+  - "Markov generator"
